@@ -1,13 +1,12 @@
 import React from 'react';
-import Navbar from './components/Navbar'
-import Footer from './components/Footer'
-
+import Routes from './routes'
+import GlobalStyles from './components/globalStyled'
 
 function App() {
   return (
     <div className="App">
-      <Navbar/>
-      <Footer/>
+      <GlobalStyles/>
+      <Routes/>
     </div>
   );
 }

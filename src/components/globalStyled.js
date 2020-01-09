@@ -8,8 +8,9 @@ export default createGlobalStyle`
     box-sizing: border-box;
 }
 body {
-    background: rgb(10, 10, 35);
+    background-color: #800080;
     color: white;
-    -webkit-font-smoothing: antialised !important
+    -webkit-font-smoothing: antialised !important;
+    font-family: Arial, Helvetica, sans-serif;
 }
 `;

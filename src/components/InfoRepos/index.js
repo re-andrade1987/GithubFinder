@@ -1,14 +1,14 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
-import {Title} from '../styles'
+import {Title, Container} from '../styles'
 
 
 export default function InfoRepos() {
   return (
-    <div className="App">
+    <Container>
      <Title>Página de info</Title>
-     <Link to="/">Voltar para a page inicial</Link>
-    </div>
+     <Link to="/">Voltar</Link>
+    </Container>
   );
 }
 

@@ -21,6 +21,14 @@ export const Container = styled.div`
         margin-right: 7px;
         margin-bottom: -5px;
     }
+    ul li{
+        display: flex;
+        flex-direction: column;
+    }
+    img{
+        width: 100px;
+        height: 100px ;
+    }
 
 ` 
 export const Title = styled.h2`

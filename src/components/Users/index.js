@@ -7,46 +7,36 @@ import axios from 'axios'
 
 export default function Repos() {
 
-  const [ repos, newRepo] = useState('');
+  const [ users, infoUsers] = useState('');
   const [ repositorios, setRepositorios] = useState([]);
 
   const handleSubmit = useCallback((e) => {
     e.preventDefault(); 
-    console.log(repos)
+    console.log(users)
 
     async function submit() {
-      const response = await axios.get(`https://api.github.com/repos/${repos}`);
+      const response = await axios.get(`https://api.github.com/users/${users}`);
       console.log(response.data)
 
       const data = {
-        name: response.data.name,
-        starts: response.data.starts,
-        forks: response.data.forks,
-        issues: response.data.issues,
-        avatar: response.data.avatar_url,
         usuario: response.data.login,
-
+        name: response.data.name,
+        avatar: response.data.avatar_url,
+       
       }
 
       setRepositorios([...repositorios, data]);
-      newRepo('');
-
+      infoUsers('');
     }
 
     submit();
    
-  }, [repos, repositorios]);
+  }, [users, repositorios]);
 
   
   function handleInput(e){
-    newRepo(e.target.value);
+    infoUsers(e.target.value);
   }
-
-  const handleDelete = useCallback ((repo) => {
-  const find = repositorios.filter(r => r.name !== repo);
-  setRepositorios(find);
-
-  },[repositorios]);
 
   return (
     <Container>
@@ -55,24 +45,19 @@ export default function Repos() {
      </Title>
      <Form onSubmit={handleSubmit}>
         <input 
-        value={repos} 
+        value={users} 
         onChange={handleInput}
         type="text"
-        placeholder="Pesquisar Repositorios"/>
-
+        placeholder="Pesquisar usuários"/>
         <button type='submit'>Enviar</button>
      </Form>
-     <Link to="/InfoRepos">Ir para repo info</Link>
       <ul>
         {repositorios.map(repo =>
         <li key={repo.name}>
-          <p onClick={()=> handleDelete(repo.name)}></p>
+          <img src={repo.avatar} alt='img_avatar'/>
           <span>Name: {repo.name}</span>
-          <span>Stars: {repo.stargazers_count}</span>
-          <span>Forks: {repo.forks}</span>
-          <span>Issues: {repo.open_issues}</span>
-          <span>Login: {repo.login}</span>
-          <img src={repo.avatar_url} alt='img_avatar'/>
+          <span>Login: {repo.usuario}</span>
+          <Link to={`/InfoRepos/${encodeURIComponent(repo.name)}`}>Repositorios</Link>
         </li>
         )}
       </ul>

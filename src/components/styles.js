@@ -14,20 +14,35 @@ export const Container = styled.div`
     width: 200px;
     height:40px;
     text-align: center;
-    border-radius: 5px;
+    border-radius: 4px;
     padding: 8px;
+    background-color: #df0053;
+    margin-left: 26px;
     }
     svg{
         margin-right: 7px;
         margin-bottom: -5px;
     }
+    
+    ul{
+        display: flex;
+    }
     ul li{
         display: flex;
         flex-direction: column;
+        margin-top: 30px;
+        margin-left: 30px;
+       
     }
     img{
-        width: 100px;
-        height: 100px ;
+        width: 250px;
+        height: 200px ;
+    }
+    span{
+        margin-top: 10px;
+        font-size: 15px;
+        text-align: center;
+        color: #000;
     }
 
 ` 
@@ -35,6 +50,7 @@ export const Title = styled.h2`
  font-size: 30px;
  text-align: center;
  margin-top: 40px;
+ color: #000;
 `
 export const Form = styled.form`
 input{
@@ -47,12 +63,14 @@ button{
     height: 40px ;
     margin-top: 30px;
     width: 100px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-left: 2px;
+    background-color: #df0053;
+    
 }
 `
-export const Button = styled.button`
- cursor: pointer;
- border-radius: 4px;
-`
+
 
 
 

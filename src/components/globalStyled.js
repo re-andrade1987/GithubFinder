@@ -8,7 +8,7 @@ export default createGlobalStyle`
     box-sizing: border-box;
 }
 body {
-    background-color: #800080;
+    background-color: #f6f9f9;
     color: white;
     -webkit-font-smoothing: antialised !important;
     font-family: Arial, Helvetica, sans-serif;

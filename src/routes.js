@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route} from 'react-router-dom';
-import Repos from './components/Respos/index'
+import Repos from './components/Users/index'
 import InfoRepos from './components/InfoRepos/index'
 
 
@@ -9,7 +9,7 @@ const Routes = () => {
         <BrowserRouter>
             <Switch>
                 <Route exact path="/" component={Repos}/>
-                <Route  path="/InfoRepos" component={InfoRepos}/>
+                <Route  path="/repositorio/:repositorio" component={InfoRepos}/>
             </Switch>
         </BrowserRouter>
     );

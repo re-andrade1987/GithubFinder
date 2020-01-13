@@ -8,7 +8,7 @@ export const Container = styled.div`
     a{
     margin-top: 30px;
     text-decoration: none;
-    font-size: 20px;
+    font-size: 15px;
     background-color: #ffffff;
     color: black;
     width: 200px;

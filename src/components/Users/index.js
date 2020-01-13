@@ -7,15 +7,16 @@ import axios from 'axios'
 
 export default function Repos() {
 
-  const [ users, infoUsers] = useState('');
-  const [ repositorios, setRepositorios] = useState([]);
+  const [ userName, setName] = useState('');
+  const [ infoUsers, setinfoUsers] = useState([]);
+  
 
   const handleSubmit = useCallback((e) => {
     e.preventDefault(); 
-    console.log(users)
+    console.log(userName)
 
     async function submit() {
-      const response = await axios.get(`https://api.github.com/users/${users}`);
+      const response = await axios.get(`https://api.github.com/users/${userName}`);
       console.log(response.data)
 
       const data = {
@@ -25,17 +26,17 @@ export default function Repos() {
        
       }
 
-      setRepositorios([...repositorios, data]);
-      infoUsers('');
+      setinfoUsers([...infoUsers, data]);
+      setName('');
+     
     }
-
     submit();
-   
-  }, [users, repositorios]);
+     
+  }, [userName, infoUsers]);
 
   
   function handleInput(e){
-    infoUsers(e.target.value);
+    setName(e.target.value);
   }
 
   return (
@@ -45,19 +46,19 @@ export default function Repos() {
      </Title>
      <Form onSubmit={handleSubmit}>
         <input 
-        value={users} 
+        value={userName} 
         onChange={handleInput}
         type="text"
         placeholder="Pesquisar usuários"/>
         <button type='submit'>Enviar</button>
      </Form>
       <ul>
-        {repositorios.map(repo =>
-        <li key={repo.name}>
-          <img src={repo.avatar} alt='img_avatar'/>
-          <span>Name: {repo.name}</span>
-          <span>Login: {repo.usuario}</span>
-          <Link to={`/InfoRepos/${encodeURIComponent(repo.name)}`}>Repositorios</Link>
+        {infoUsers.map(info =>
+        <li key={info.name}>
+          <img src={info.avatar} alt='img_avatar'/>
+          <span>Name: {info.name}</span>
+          <span>Login: {info.usuario}</span>
+          <Link to={`/infoUsers/${info.name}`}>Repositórios</Link>
         </li>
         )}
       </ul>

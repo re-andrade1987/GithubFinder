@@ -1,6 +1,14 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+ @media (max-width: 480px){
+    ul{
+        display: flex;
+        flex-direction: column;
+    }
+  
+ }
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -9,7 +17,6 @@ export const Container = styled.div`
     margin-top: 30px;
     text-decoration: none;
     font-size: 15px;
-    background-color: #ffffff;
     color: black;
     width: 200px;
     height:40px;
@@ -68,6 +75,15 @@ button{
     margin-left: 2px;
     background-color: #df0053;
     
+}
+@media (max-width: 480px){
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    button{
+        margin-top: 10px;
+    }
 }
 `
 

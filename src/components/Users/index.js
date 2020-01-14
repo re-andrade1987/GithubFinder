@@ -58,7 +58,7 @@ export default function Repos() {
           <img src={info.avatar} alt='img_avatar'/>
           <span>Name: {info.name}</span>
           <span>Login: {info.usuario}</span>
-          <Link to={`/infoUsers/${info.name}`}>Repositórios</Link>
+          <Link to={`/infoUsers/${info.usuario}`}>Repositórios</Link>
         </li>
         )}
       </ul>
